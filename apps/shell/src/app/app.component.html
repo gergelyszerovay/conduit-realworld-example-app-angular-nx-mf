@@ -1,0 +1,16 @@
+<conduit-ui-navbar>
+  <conduit-ui-navbar-item link="/" [exactActive]="true" label="Home"></conduit-ui-navbar-item>
+  <ng-container *ngIf="sharedStore.user$ | ngrxPush">
+    <conduit-ui-navbar-item link="/editor" label="New Article"></conduit-ui-navbar-item>
+    <conduit-ui-navbar-item link="/settings" label="Settings"></conduit-ui-navbar-item>
+  </ng-container>
+  <ng-container *ngIf="!(sharedStore.user$ | ngrxPush)">
+    <conduit-ui-navbar-item link="/login" label="Sign in"></conduit-ui-navbar-item>
+    <conduit-ui-navbar-item link="/register" label="Sign up"></conduit-ui-navbar-item>
+  </ng-container>
+</conduit-ui-navbar>
+
+<!-- Call OnInit of the routed component on activete in zone-less mode -->
+<router-outlet (activate)="cdRef.detectChanges()"></router-outlet>
+
+<conduit-ui-footer></conduit-ui-footer>

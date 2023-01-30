@@ -1,0 +1,5 @@
+<button class="btn {{mode === 'primary' ? 'btn-lg btn-primary pull-xs-right' : 'btn btn-outline-danger'}}"
+  [disabled]="disabled"
+  [type]="type"
+  (click)="submitClick.emit()"
+  >{{ label }}</button>

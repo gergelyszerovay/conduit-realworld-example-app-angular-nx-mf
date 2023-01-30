@@ -1,0 +1,16 @@
+<ng-container *ngrxLet="popularTagsStore.state$ as state">
+  <ng-container *ngIf="state.httpRequestState === 'LOADING'">
+    Loading...
+  </ng-container>
+  <ng-container *ngIf="state.httpRequestState | httpRequestStateErrorPipe">
+    {{ defaultHttpRequestErrorMessage }}
+  </ng-container>
+  <ng-container *ngIf="state.httpRequestState === 'LOADED'">
+    <p>Popular Tags</p>
+
+    <div class="tag-list">
+      <a *ngFor="let tag of state.tags" class="tag-pill tag-default"
+        (click)="tagClick.emit(tag);">{{ tag }}</a>
+    </div>
+  </ng-container>
+</ng-container>

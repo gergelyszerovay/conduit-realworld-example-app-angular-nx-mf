@@ -1,0 +1,13 @@
+<ng-container *ngIf="(store.httpRequestState$ | ngrxPush) === 'LOADING'">
+  Loading...
+</ng-container>
+<ng-container *ngIf="store.httpRequestState$ | ngrxPush | httpRequestStateErrorPipe">
+  {{ defaultHttpRequestErrorMessage }}
+</ng-container>
+<ng-container *ngIf="(store.httpRequestState$ | ngrxPush) !== 'LOADING'">
+  <ng-container *ngrxLet="store.articles$ as articles">
+    <conduit-article-feature-article-list-preview
+      *ngFor="let article of articles" [article]="article"
+    ></conduit-article-feature-article-list-preview>
+  </ng-container>
+</ng-container>

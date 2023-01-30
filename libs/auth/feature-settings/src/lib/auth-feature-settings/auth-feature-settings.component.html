@@ -1,0 +1,57 @@
+<ng-container *ngIf="(this.sharedStore.user$ | async) === undefined">
+  Loading...
+</ng-container>
+<ng-container *ngIf="this.sharedStore.user$ | async">
+  <div class="settings-page" *ngrxLet="store.state$ as vm">
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-xs-12">
+          <h1 class="text-xs-center">Your Settings</h1>
+          <ul class="error-messages">
+            <li *ngFor="let e of (vm.formErrors | formErrorPipe)">{{ e }}</li>
+          </ul>
+          <form (submit)="store.formSubmit()">
+              <fieldset [disabled]="vm.httpRequestState === 'LOADING'">
+              <conduit-ui-input
+                label="URL of profile picture"
+                [control]="store.formGroup.controls.image"
+                autocomplete="name"
+              ></conduit-ui-input>
+              <conduit-ui-input
+                label="Your Name"
+                [control]="store.formGroup.controls.username"
+                autocomplete="name"
+              ></conduit-ui-input>
+              <conduit-ui-input
+                label="Short bio about you"
+                [control]="store.formGroup.controls.bio"
+                type="textarea"
+              ></conduit-ui-input>
+              <conduit-ui-input
+                label="Email"
+                [control]="store.formGroup.controls.email"
+                autocomplete="email"
+              ></conduit-ui-input>
+              <conduit-ui-input
+                label="Password"
+                [control]="store.formGroup.controls.password"
+                autocomplete="new-password"
+                type="password"
+              ></conduit-ui-input>
+              <conduit-ui-button
+                label="Update Settings"
+                type="submit"
+              ></conduit-ui-button>
+            </fieldset>
+          </form>
+          <hr />
+          <conduit-ui-button
+            (submitClick)="store.logout()"
+            label="Or click here to logout."
+            mode="secondary"
+          ></conduit-ui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

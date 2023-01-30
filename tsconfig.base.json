@@ -1,0 +1,49 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@conduit/article/feature-article": [
+        "libs/article/feature-article/src/index.ts"
+      ],
+      "@conduit/article/feature-article-list": [
+        "libs/article/feature-article-list/src/index.ts"
+      ],
+      "@conduit/auth/feature-get-user": [
+        "libs/auth/feature-get-user/src/index.ts"
+      ],
+      "@conduit/auth/feature-settings": [
+        "libs/auth/feature-settings/src/index.ts"
+      ],
+      "@conduit/auth/feature-sign-in": [
+        "libs/auth/feature-sign-in/src/index.ts"
+      ],
+      "@conduit/auth/feature-sign-up": [
+        "libs/auth/feature-sign-up/src/index.ts"
+      ],
+      "@conduit/home/feature-home": ["libs/home/feature-home/src/index.ts"],
+      "@conduit/home/feature-popular-tags": [
+        "libs/home/feature-popular-tags/src/index.ts"
+      ],
+      "@conduit/profile/feature-profile": [
+        "libs/profile/feature-profile/src/index.ts"
+      ],
+      "@conduit/shared/core": ["libs/shared/core/src/index.ts"],
+      "@conduit/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@conduit/shared/ui": ["libs/shared/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

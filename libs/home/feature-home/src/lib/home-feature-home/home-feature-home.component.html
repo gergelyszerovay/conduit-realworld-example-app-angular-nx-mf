@@ -1,0 +1,45 @@
+<ng-container *ngrxLet="store.state$ as vm">
+  <div class="home-page">
+    <div class="banner">
+      <div class="container">
+        <h1 class="logo-font">conduit</h1>
+        <p>A place to share your knowledge.</p>
+      </div>
+    </div>
+
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="feed-toggle">
+            <ul class="nav nav-pills outline-active">
+              <ng-container *ngrxLet="sharedStore.user$ as user">
+                <li class="nav-item" *ngIf="user">
+                  <a class="nav-link" [class.active]="vm.mode === 'author'"
+                    (click)="store.setAuthorMode(user.username)">Your Feed</a>
+                </li>
+              </ng-container>
+              <li class="nav-item">
+                <a class="nav-link" [class.active]="vm.mode === 'global_feed'"
+                  (click)="store.setGlobalFeedMode()">Global Feed</a>
+              </li>
+              <li class="nav-item" *ngIf="vm.mode === 'tag'">
+                <a class="nav-link active"># {{ vm.key }}</a>
+              </li>
+            </ul>
+          </div>
+
+          <conduit-article-feature-article-list
+            [mode]="vm.mode"
+            [key]="vm.key"
+          ></conduit-article-feature-article-list>
+        </div>
+
+        <div class="col-md-3">
+          <div class="sidebar">
+            <conduit-popular-tags (tagClick)="store.setTagMode($event)"></conduit-popular-tags>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

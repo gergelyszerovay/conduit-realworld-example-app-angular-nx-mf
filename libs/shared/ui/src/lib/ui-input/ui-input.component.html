@@ -1,0 +1,15 @@
+<fieldset class="form-group">
+  <input *ngIf="type === 'text' || type === 'password'"
+    class="form-control form-control-lg"
+    [type]="type"
+    [placeholder]="label"
+    [formControl]="control"
+    [autocomplete]="autocomplete"
+    />
+  <textarea *ngIf="type === 'textarea'"
+    class="form-control form-control-lg"
+    [placeholder]="label"
+    [formControl]="control"
+    [autocomplete]="autocomplete"
+    ></textarea>
+</fieldset>
