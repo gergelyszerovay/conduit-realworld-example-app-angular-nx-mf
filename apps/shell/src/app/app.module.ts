@@ -5,10 +5,10 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 // Routes with module federation
-import { appRoutes } from './app.routes-mf';
+// import { appRoutes } from './app.routes-mf';
 
 // Single application routes
-// import { appRoutes } from './app.routes';
+import { appRoutes } from './app.routes';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorizationInterceptorService, SharedStore } from '@conduit/shared/core';

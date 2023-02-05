@@ -1,3 +1,7 @@
+### On StackBlitz
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/gergelyszerovay/conduit-realworld-example-app-angular-nx-mf/tree/1-branch-without-micro-frontends)
+
 # ConduitRealworldExampleAppAngularNxMf
 
 <a href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
