@@ -90,7 +90,7 @@
       }
     },
     "serve-static": {
-      "executor": "@nrwl/angular:file-server",
+      "executor": "@nx/web:file-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "mf-user:build",

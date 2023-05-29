@@ -53,7 +53,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nrwl/angular:module-federation-dev-server",
+      "executor": "@nx/angular:module-federation-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "shell:build:production"
