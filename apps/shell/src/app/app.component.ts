@@ -1,24 +1,36 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { SharedStore } from '@conduit/shared/core';
+import { AuthorizationInterceptorService, SharedStore } from '@conduit/shared/core';
 import { AuthFeatureGetUserStore } from '@conduit/auth/feature-get-user'
-// import { RootStore } from '@conduit/shared/core';
-// import { sharedServices } from '@conduit/shared/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UiFooterComponent, UiNavbarComponent, UiNavbarItemComponent } from '@conduit/shared/ui';
+import { LetModule, PushModule } from '@ngrx/component';
+import { RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'conduit-root',
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [
+    SharedStore,
+    AuthFeatureGetUserStore,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptorService, multi: true },
+  ],
+  imports: [
+    UiFooterComponent,
+    UiNavbarComponent,
+    UiNavbarItemComponent,
+    LetModule, PushModule,
+    RouterOutlet, NgIf
+  ]
 })
 export class AppComponent implements OnInit {
-  // title = 'shell';
   constructor(
     protected cdRef: ChangeDetectorRef,
     protected sharedStore: SharedStore,
     protected authFeatureGetUserStore: AuthFeatureGetUserStore
-    // protected rootStore: RootStore
     ) {
-      // sharedServices.rootStore = rootStore;
-      // console.log({ sharedServices });
     }
 
   ngOnInit(): void {

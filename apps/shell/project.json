@@ -52,8 +52,23 @@
       },
       "defaultConfiguration": "production"
     },
-    "serve": {
+    "serve-mf": {
       "executor": "@nx/angular:module-federation-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "shell:build:production"
+        },
+        "development": {
+          "browserTarget": "shell:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "publicHost": "http://localhost:4200"
+      }
+    },
+    "serve-monolithic": {
+      "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "shell:build:production"
